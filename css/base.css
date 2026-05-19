@@ -1,114 +1,97 @@
-#User-input{
-  /*   border:solid black 5px; 
-   */
-    height: 50px;
-    width: 500px;
-    position: absolute;
-    top:10%;
-    left: 48%;
-    top: 5%;
+#root{
 }
-#inputbox{
-    height: 50px;
-    width: 200px;
-    font-size: 50px;
-    font-family: sans-serif;
+:root{
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --accent: #5fb0b0;
+    --accent-dark: #468b8b;
+    --muted: #6b7280;
+    --success: #16a34a;
+    --danger: #ef4444;
+    --radius: 10px;
+    --gap: 1rem;
+    --max-width: 1100px;
+    --font-sans: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
-#enterbutton{
-    height: 50px;
-    font-size: 30px;
-    font-family: sans-serif;
-    background-color: cadetblue;
+
+*{box-sizing: border-box}
+html,body{height:100%;}
+body{
+    margin:0;
+    font-family: var(--font-sans);
+    background: linear-gradient(180deg,var(--bg),#e9eef5);
+    color: #111827;
+    -webkit-font-smoothing:antialiased;
+}
+
+.app-container{
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Cards and common components */
+.card{
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    padding: 1rem;
+}
+
+button, .btn{
+    background: var(--accent);
     color: white;
-    font-weight: bold;
-    border-radius: 5px;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+button:hover{background: var(--accent-dark)}
+
+input[type="text"], input[type="search"], .input{
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
 }
 
-#titleh1{
-    font-size: 50px;
-    font-family: sans-serif;
-    color: white;
-    border:solid black 2px;
-    width: 175px;
-    padding-left: 5px;
-    border-radius: 5px;
-    background-color:cadetblue;
-    position: absolute;
-    left: 20%;
-    top: 0%;
+/* Layout helpers */
+.row{display:flex;gap:var(--gap);align-items:center}
+.col{display:flex;flex-direction:column;gap:0.5rem}
+.center{display:flex;align-items:center;justify-content:center}
+
+/* Improve existing elements with progressive enhancement (keep original rules as fallback) */
+#User-input{height: 50px; width:100%; max-width:600px; margin:0 auto; position:relative}
+#inputbox{height: 50px; width:100%; max-width:360px; font-size:1.2rem}
+#enterbutton{height: 50px; font-size:1rem; background-color:var(--accent); color: white; font-weight: 700; border-radius: 8px}
+
+#titleh1{font-size: clamp(20px,4vw,48px); color: white; background-color:var(--accent); padding:0.5rem 1rem; border-radius:8px; display:inline-block}
+
+#userStatus{font-size:1rem; padding:0.3rem 0.6rem; background:goldenrod; color:white; border-radius:6px}
+
+#messageBox{font-size:0.95rem; color:var(--danger); background:#000; color:#fff; padding:0.5rem; border-radius:6px}
+
+.wordlebox{border: solid rgba(0,0,0,0.12) 1px; width:100%; max-width:420px; height:auto; display:inline-block}
+.wordlebox span{font-size:1.1rem; font-weight:700; margin-left:0.5rem}
+
+/* Buttons for small controls */
+.small-btn{padding:0.4rem 0.6rem; border-radius:6px}
+
+/* Responsive adjustments to override absolute positioning on small screens */
+@media (max-width: 1000px){
+    h1,h2{position:static !important; left:auto !important; top:auto !important; width:auto !important}
+    .QuizSelector, .WordleSelector{position:static !important; margin:1rem auto; width:calc(100% - 2rem) !important}
+    .QuizSelector button, .WordleSelector button{position:static !important; margin-left:auto}
+    #User-input, #messageBox, #wordsHad, #hadp{position:static !important; left:auto !important; top:auto !important; margin-top:0.5rem}
+    .box1, .box2, .box3, .box4{left:auto !important; top:auto !important}
 }
 
-#userStatus{
-    position: absolute;;
-    font-size: 30px;
-    left: 43%;
-    top: 10%;
-    width: 180;
-    padding-left: 5px;
-    border-radius: 5px;
-    background-color:goldenrod;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: white;    
-}
-
-#messageBox{
-    font-size: 25px;
-    position: absolute;
-    left: 70%;
-    top:10%;
-    color:red;
-    font-family: sans-serif;
-    font-weight: bold;
-    background-color: black;
-    border: solid black;
-    border-radius: 5px;
-}
-
-.wordlebox{
-    border: solid black 5px;
-    width: 400px;
-    height: 300px;
-    position: absolute;
-    top: 20%;
-    display: inline-block;
-}
-.wordlebox span{
-    font-size: 25px;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin-left: 20px;
-
-}
-
-.box1{
-    left: 20%;
-}
-.box2{
-    left: 48%;
-}
-.box3{
-    top:61%;
-    left: 20%;
-}
-.box4{
-    top: 61%;
-    left: 48%;
-}
-
-#wordsHad{
-    border: solid black 2px;
-    max-width: 400px;
-    height: 50px;
-    position: absolute;
-    top: 5%;
-    left: 70%;
-    font-family: sans-serif;
-    font-size: 25px;
-    letter-spacing: 5px;
-}
-#hadp{
-    position: absolute;
-    left: 70%;
-    top: 0%;
+@media (max-width: 600px){
+    .app-container{padding:0.5rem}
+    h1{font-size:1.6rem}
+    h2{font-size:1.1rem}
+    .wordlebox{max-width:100%; padding:0.6rem}
+    .QuizSelector p, .WordleSelector p{font-size:1.1rem}
+    .QuizSelector button, .WordleSelector button{width:auto; padding:0.5rem 0.8rem}
 }
