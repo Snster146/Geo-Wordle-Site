@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $("#b1").click(function(){
-        window.location.href = "/EducationalBrainTeaserInJsR/html/WorldeHomePage.html";
+        window.location.href = "/Geo-Wordle-Site/html/WorldeHomePage.html";
     }); 
 
     $("#b2").click(function(){
-        window.location.href = "/EducationalBrainTeaserInJsR/html/GeoBase.html";
+        window.location.href = "/Geo-Wordle-Site/html/GeoBase.html";
     });
 
 //used to set to Login to use withing the app.js to determine if user is loggin in or creating account

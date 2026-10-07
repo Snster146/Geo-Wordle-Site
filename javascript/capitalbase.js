@@ -139,7 +139,7 @@ $(document).ready(function(){
         window.location.href=window.location.href;
     });
     $("#home").click(function(){
-        window.location.href="/EducationalBrainTeaserInJsR/index.html";
+        window.location.href="/Geo-Wordle-Site/index.html";
     });
     $("#giveup").click(function(){
         alert("you gave up");

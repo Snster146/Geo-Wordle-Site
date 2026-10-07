@@ -223,11 +223,11 @@ $(document).ready(function () {
         }
         if ((numofTurns==AllowedNumTurns)&&won!=true){
             alert("You lost , the word was "+selectedwords);
-            window.location.href="/EducationalBrainTeaserInJsR/index.html";
+            window.location.href="/Geo-Wordle-Site/index.html";
         }
         if (won==true){
             alert("you won");
-            window.location.href="/EducationalBrainTeaserInJsR/index.html";
+            window.location.href="/Geo-Wordle-Site/index.html";
         }
     
 
