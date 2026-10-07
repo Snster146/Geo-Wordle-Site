@@ -23,18 +23,6 @@ body {
   color: var(--ink);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.28) 0 2px, transparent 2px),
-    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.2) 0 1.6px, transparent 1.8px),
-    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.2) 0 1.9px, transparent 2px);
-  pointer-events: none;
-  opacity: 0.6;
-}
-
 #User-input {
   display: flex;
   align-items: center;
@@ -68,7 +56,7 @@ body::before {
 
 #titleh1 {
   display: block;
-  margin: 2rem auto 1rem;
+  margin: 0;
   padding: 0.85rem 2rem;
   border-radius: 0.7rem;
   background: #7ea7af;
@@ -82,9 +70,7 @@ body::before {
 }
 
 #userStatus,
-#messageBox,
-#hadp,
-#wordsHad {
+#messageBox {
   max-width: 640px;
   margin: 0.75rem auto;
   border-radius: 0.7rem;
@@ -94,7 +80,7 @@ body::before {
   padding: 0.75rem 1rem;
 }
 
-.wordlebox {
+.wordle-box {
   border-radius: 0.7rem;
   border: 2px solid #7da3ad;
   background: #edf5f8;
@@ -108,7 +94,66 @@ body::before {
   border-radius: 0.75rem;
   background: rgba(255,255,255,0.12);
   color: var(--ink);
-  margin: 1.5rem auto 0;
+  margin: 0;
+}
+
+.wordle-board {
+  border: 2px solid #7da3ad;
+  border-radius: 1rem;
+  background: #f3f9fb;
+  padding: 0.75rem;
+  box-shadow: 0 4px 0 rgba(81, 109, 116, 0.7);
+}
+
+.wordle-board-title {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.wordle-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.3rem;
+  border: 2px solid #b9cbd1;
+  border-radius: 0.5rem;
+  background: #edf5f7;
+  color: var(--ink);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.wordle-tile.correct {
+  background: #9bc49d;
+  border-color: #5f8c66;
+  color: #113b2b;
+}
+
+.wordle-tile.present {
+  background: #f3d188;
+  border-color: #c08c35;
+  color: #4d2f05;
+}
+
+.wordle-tile.absent {
+  background: #d9e1e6;
+  border-color: #9aa8b1;
+  color: #33424b;
+}
+
+.wordle-tile.empty {
+  background: #f7fbfc;
 }
 
 @media (max-width: 600px) {

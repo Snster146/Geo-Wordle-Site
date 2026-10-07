@@ -11,6 +11,36 @@ var SelectedCapitalArr=[];
 var inputboxarr=[];
 
 var hasSelected=false;
+
+function showGamePopup(title, message) {
+    const existing = document.getElementById("aq-game-modal");
+    if (existing) existing.remove();
+
+    const overlay = document.createElement("div");
+    overlay.id = "aq-game-modal";
+    overlay.className = "aq-modal-overlay";
+
+    const card = document.createElement("div");
+    card.className = "aq-modal-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+
+    const text = document.createElement("p");
+    text.textContent = message;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "aq-modal-button";
+    button.textContent = "Close";
+    button.addEventListener("click", () => overlay.remove());
+
+    card.appendChild(heading);
+    card.appendChild(text);
+    card.appendChild(button);
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+}
 //capitalrelient.js stores countries and their capitals 
 //for every country create input box , store in an array 
 //loop through each input box ,(add action listner) check its value with corresponding position in array of countries
@@ -50,41 +80,42 @@ function SelectCapArr(){
     }
 }
 function displayBoxes(){
+    let grid = document.getElementById("capital-answer-grid");
+    if (!grid) {
+        grid = document.createElement("div");
+        grid.id = "capital-answer-grid";
+        grid.className = "game-answer-grid";
+        document.body.appendChild(grid);
+    }
+
     for (let i=0;i<SelectedCountryArr.length;i++){
-        let currbox=document.createElement("input");
+        let cell = document.createElement("div");
+        cell.className = "game-answer-cell";
+
         let currCount=document.createElement("span");
-        currCount.innerHTML=SelectedCountryArr[i];
-        currbox.style.height="25px";
-        currbox.style.width="150px";
-        currbox.style.marginLeft="40px";
-        currCount.style.fontFamily="sans-serif"
-        currCount.style.fontSize="20px";
-        currCount.style.marginLeft="40px"
-        currbox.style.fontFamily="sans-serif";
-        currbox.style.fontSize="20px";
-        let br=document.createElement("br")
-        
-        document.body.appendChild(currCount);
-        document.body.appendChild(currbox);
+        currCount.className = "game-answer-label";
+        currCount.textContent=SelectedCountryArr[i];
+
+        let currbox=document.createElement("input");
+        currbox.className = "game-answer-input";
+        currbox.setAttribute("aria-label", `Capital for ${SelectedCountryArr[i]}`);
+
+        cell.appendChild(currCount);
+        cell.appendChild(currbox);
+        grid.appendChild(cell);
         inputboxarr.push(currbox);
-        if (i%2==0){
-            document.body.appendChild(br);
-        }
         currbox.addEventListener("input",function(){
             checkans(currbox,i);
         });
-       // alert(SelectedCapitalArr);
-
     }
 }
 function checkans(inputbox,i){
    let inputval=inputbox.value.trim().toLowerCase();
-   let correctans=SelectedCapitalArr[i];
+   let correctans=String(SelectedCapitalArr[i]).trim().toLowerCase();
    if (inputval==correctans){
-    inputbox.style.backgroundColor="lightGreen";
+    inputbox.classList.add("is-correct");
     inputbox.disabled=true;
-}
-
+    }
 }
 
 function displayttl(){
@@ -139,20 +170,20 @@ $(document).ready(function(){
         window.location.href=window.location.href;
     });
     $("#home").click(function(){
-        window.location.href="/Geo-Wordle-Site/index.html";
+        window.location.href="../index.html";
     });
     $("#giveup").click(function(){
-        alert("you gave up");
         for(let i=0; i<inputboxarr.length;i++){
             let currbox=inputboxarr[i];
             let val=currbox.value;
             if (val==""){
                 let currcap=SelectedCapitalArr[i];
                 currbox.value=currcap;
-                currbox.style.backgroundColor="red";
+                currbox.style.backgroundColor="#f7d5d5";
                 currbox.disabled=true;
             }
         }
+        showGamePopup("Round Ended", "You gave up — the remaining capitals have been revealed.");
     });
 
 });

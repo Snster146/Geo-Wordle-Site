@@ -1,29 +1,59 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Flag Guessing Game</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        boxShadow: {
+                            aquarium: '0 24px 48px rgba(3, 19, 27, 0.28)'
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="../css/aquarium-theme.css">
     </head>
-    <body>
-        <h1 id="h2ttl" style="position: absolute; left: 40%;font-family: sans-serif;font-size: 50px;font-weight: bold;background-color: cadetblue;color: white;border-radius: 5px;">
-        </h1>
-        <div style="border: solid 2px black;width: 150px;height: 100px;">
-            <p style="font-family: sans-serif;font-size: 20px;padding-left: 5px;">correct answers</p>
-            <span id="correctans" style="font-family: sans-serif;font-size: 30px;padding-left: 50px;"></span>
-        </div>
-        <div style="border: solid 2px black;width: 150px;height: 150px;margin-top: 10px;">
-            <p style="font-family: sans-serif;font-size: 20px;padding-left: 5px;">incorrect answers</p>
-            <span id="incorrectans" style="font-family: sans-serif;font-size: 30px;padding-left: 50px;"></span>
-        </div>
+    <body class="aquarium-shell">
+        <div class="mx-auto max-w-6xl px-4 py-10 md:py-12">
+            <div class="aquarium-panel mx-auto max-w-5xl rounded-[28px] p-5 md:p-8 shadow-aquarium">
+                <header class="mb-8 text-center">
+                    <h1 id="h2ttl" class="aquarium-title">Flag Quiz</h1>
+                </header>
 
+                <div class="mb-6 grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-2xl border-2 border-sky-700 bg-sky-50 p-4 text-center">
+                        <p class="m-0 text-sm font-bold uppercase tracking-[0.12em] text-slate-700">Correct</p>
+                        <span id="correctans" class="mt-2 block text-3xl font-bold text-slate-800">0</span>
+                    </div>
+                    <div class="rounded-2xl border-2 border-sky-700 bg-sky-50 p-4 text-center">
+                        <p class="m-0 text-sm font-bold uppercase tracking-[0.12em] text-slate-700">Incorrect</p>
+                        <span id="incorrectans" class="mt-2 block text-3xl font-bold text-slate-800">0</span>
+                    </div>
+                </div>
 
-        <img id="imgcontainer" src="" alt="lol" style="position: absolute;left: 45%;top:15%;height: 123px;width: 300px;padding-bottom: 50px;">
-        <p style="position: absolute;top: 30%;left: 50%;font-family: sans-serif;font-size: 25px;font-weight: bold;">Enter Input</p>
-        <input id="guessInput" type="text" style="position: absolute;top: 40%;left: 45%;width: 300px;height: 50px;font-size: 20px;font-family: sans-serif;">
-        <button id="ansbtn" style="position: absolute;top: 50%;left: 52%;height: 30px;width: 75px;font-family: sans-serif;font-weight: bold;font-size: 20px;background-color: cadetblue;color: white;border-radius: 5px;">Enter</button>
-        <span id="tempcon" style="position: absolute;"></span>
+                <div class="rounded-[22px] border-2 border-sky-700 bg-sky-50/80 p-5 md:p-7">
+                    <div class="mb-6 flex justify-center">
+                        <img id="imgcontainer" src="" alt="Guess the flag" class="block max-h-[220px] w-full max-w-[420px] rounded-[18px] border-2 border-sky-700 bg-white object-contain p-3 shadow-[0_6px_0_rgba(82,112,118,0.7)]">
+                    </div>
+
+                    <div class="mx-auto max-w-xl">
+                        <label for="guessInput" class="mb-2 block text-center text-sm font-bold uppercase tracking-[0.12em] text-slate-700">Enter country name</label>
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <input id="guessInput" type="text" class="w-full rounded-xl border-2 border-sky-700 bg-white px-4 py-3 text-lg text-slate-800 outline-none focus:border-sky-900">
+                            <button id="ansbtn" class="ocean-button px-6 py-3">Enter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script type="module" src="/Geo-Wordle-Site/javascript/flagGuess.js" defer></script>
+    <script type="module" src="../javascript/flagGuess.js" defer></script>
 </html>

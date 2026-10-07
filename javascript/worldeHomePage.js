@@ -1,28 +1,28 @@
-var numOfWorldes=0
-$(document).ready(function(){
-    $("#b1").click(function(){
-        var numOfWorldes=1;
-        localStorage.setItem("numofwordle",numOfWorldes);
-        window.location.href="/Geo-Wordle-Site/html/Wordlebase.html";
+$(document).ready(function () {
+    const redirect = "../html/Wordlebase.html";
 
+    $("#b1").on("click", function () {
+        localStorage.setItem("numofwordle", 1);
+        window.location.href = redirect;
     });
-    $("#b2").click(function(){
-        var numOfWorldes=2;
-        localStorage.setItem("numofwordle",numOfWorldes);
-        window.location.href="/Geo-Wordle-Site/html/Wordlebase.html";
+
+    $("#b2").on("click", function () {
+        localStorage.setItem("numofwordle", 2);
+        window.location.href = redirect;
     });
-    $("#b3").click(function(){
-        var numOfWorldes=4;
-        localStorage.setItem("numofwordle",numOfWorldes);
-        window.location.href="/Geo-Wordle-Site/html/Wordlebase.html";
+
+    $("#b3").on("click", function () {
+        localStorage.setItem("numofwordle", 4);
+        window.location.href = redirect;
     });
-    $("#b4").click(function(){
-        var numOfWorldes=8;
-        localStorage.setItem("numofwordle",numOfWorldes);
-        window.location.href="/Geo-Wordle-Site/html/Wordlebase.html";
+
+    $("#b4").on("click", function () {
+        localStorage.setItem("numofwordle", 8);
+        window.location.href = redirect;
     });
-    $("#b5").click(function(){
-        window.location.href="/Geo-Wordle-Site/index.html";
+
+    $("#b5").on("click", function () {
+        window.location.href = "../index.html";
     });
 });
 

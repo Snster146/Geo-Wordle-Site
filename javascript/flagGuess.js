@@ -72,7 +72,7 @@ $(document).ready(function(){
         }
        if (numofTurns==numofGuess){
             alert("GameOver "+"Your score :"+correctans+"/"+numofGuess);
-            window.location.href="/EducationalBrainTeaserInJsR/index.html";
+            window.location.href="../index.html";
         }
         $("#guessInput").val("");
  
