@@ -1,28 +1,98 @@
-#hPageTitle{
-    display:block;
-    margin:1rem auto;
-    padding:0.5rem 0.75rem;
-    font-size: clamp(1.4rem, 3vw, 2.25rem);
-    background:var(--accent);
-    color:#fff;
-    border-radius:8px;
-    text-align:center;
-    max-width:300px;
+:root {
+  --aqua-50: #eef9f8;
+  --aqua-100: #dfeee8;
+  --aqua-200: #c5dddb;
+  --aqua-300: #9abebd;
+  --aqua-400: #729ea0;
+  --aqua-500: #5a8089;
+  --aqua-700: #315c63;
+  --aqua-900: #183a43;
+  --coral: #d98f6b;
+  --coral-deep: #bd734c;
+  --ink: #223f43;
 }
 
-.WordleSelector{
-    border-radius:12px;
-    background:var(--card);
-    padding:1rem;
-    max-width:760px;
-    margin:1rem auto;
-    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+html, body {
+  min-height: 100%;
 }
-.WordleSelector p{font-size:1.2rem;font-weight:700;margin:0}
-.WordleSelector button{width:auto;height:48px;border-radius:8px;background:var(--accent);color:#fff;padding:0 0.7rem;border:none}
-.WordleSelector button:hover{opacity:0.9}
 
-@media (max-width:700px){
-    .WordleSelector{flex-direction:column;align-items:stretch}
-    .WordleSelector button{align-self:flex-end}
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #b9d8df;
+  color: var(--ink);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.28) 0 2px, transparent 2px),
+    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.2) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.2) 0 1.9px, transparent 2px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+#hPageTitle {
+  display: block;
+  margin: 2rem auto 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 0.7rem;
+  background: #7ea7af;
+  border: 2px solid #456a73;
+  color: #f9fdfd;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 4px 0 rgba(56, 79, 85, 0.8);
+  max-width: 460px;
+}
+
+.WordleSelector {
+  max-width: 1100px;
+  margin: 1.25rem auto;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: rgba(242, 247, 245, 0.94);
+  border: 2px solid #7ea2a9;
+  box-shadow: 0 6px 0 rgba(70, 102, 109, 0.75);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.WordleSelector p {
+  margin: 0;
+  font-size: 1.08rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.WordleSelector button {
+  min-width: 120px;
+  height: 48px;
+  border: 2px solid #8d5b3f;
+  border-radius: 0.7rem;
+  background: #d68d68;
+  color: #fffaf5;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 0 #9f6042;
+}
+
+@media (max-width: 700px) {
+  .WordleSelector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .WordleSelector button {
+    width: 100%;
+  }
 }

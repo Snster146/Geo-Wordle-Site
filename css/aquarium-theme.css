@@ -1,0 +1,147 @@
+:root {
+  --aqua-50: #eef9f8;
+  --aqua-100: #dfeee8;
+  --aqua-200: #c5dddb;
+  --aqua-300: #9abebd;
+  --aqua-400: #729ea0;
+  --aqua-500: #5a8089;
+  --aqua-700: #315c63;
+  --aqua-900: #183a43;
+  --foam: #f4f7f1;
+  --sand: #efe3cd;
+  --coral: #d98f6b;
+  --coral-deep: #bd734c;
+  --ink: #223f43;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #b9d8df;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.28) 0 2px, transparent 2px),
+    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.2) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.2) 0 1.9px, transparent 2px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.aquarium-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.aquarium-panel {
+  background: rgba(242, 247, 245, 0.94);
+  border: 2px solid #7ea2a9;
+  box-shadow: 0 6px 0 rgba(70, 102, 109, 0.75);
+}
+
+.aquarium-title {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.65rem;
+  background: #7ea7af;
+  border: 2px solid #456a73;
+  box-shadow: 0 4px 0 rgba(56, 79, 85, 0.8);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #f9fdfd;
+}
+
+.selection-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.9rem;
+  background: #f2f8f7;
+  border: 2px solid #8caeb6;
+  box-shadow: 0 3px 0 rgba(91, 120, 126, 0.7);
+}
+
+.selection-card p {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.ocean-button,
+button,
+#enterbutton,
+.WordleSelector button,
+.QuizSelector button {
+  border: 2px solid #8d5b3f;
+  border-radius: 0.7rem;
+  background: #d68d68;
+  color: #fffaf5;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 0 #9f6042;
+  transition: transform 0.15s ease;
+}
+
+.ocean-button:hover,
+button:hover,
+#enterbutton:hover,
+.WordleSelector button:hover,
+.QuizSelector button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #9f6042;
+}
+
+#messageBox,
+#userStatus {
+  border-radius: 0.7rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #7ea7af;
+  background: #eef8fa;
+  color: var(--ink);
+}
+
+#inputbox,
+input[type='text'] {
+  border: 2px solid #7da3ad;
+  border-radius: 0.7rem;
+  background: #f9fbfb;
+  color: var(--ink);
+}
+
+#wordlebox,
+.wordlebox,
+#wordsHad {
+  background: #edf5f8;
+  border: 2px solid #7da3ad;
+}
+
+@media (max-width: 768px) {
+  .selection-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ocean-button,
+  button,
+  .QuizSelector button,
+  .WordleSelector button {
+    width: 100%;
+  }
+}

@@ -1,97 +1,123 @@
-#root{
-}
-:root{
-    --bg: #f6f8fb;
-    --card: #ffffff;
-    --accent: #5fb0b0;
-    --accent-dark: #468b8b;
-    --muted: #6b7280;
-    --success: #16a34a;
-    --danger: #ef4444;
-    --radius: 10px;
-    --gap: 1rem;
-    --max-width: 1100px;
-    --font-sans: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+:root {
+  --aqua-50: #eef9f8;
+  --aqua-100: #dfeee8;
+  --aqua-200: #c5dddb;
+  --aqua-300: #9abebd;
+  --aqua-400: #729ea0;
+  --aqua-500: #5a8089;
+  --aqua-700: #315c63;
+  --aqua-900: #183a43;
+  --coral: #d98f6b;
+  --coral-deep: #bd734c;
+  --ink: #223f43;
 }
 
-*{box-sizing: border-box}
-html,body{height:100%;}
-body{
-    margin:0;
-    font-family: var(--font-sans);
-    background: linear-gradient(180deg,var(--bg),#e9eef5);
-    color: #111827;
-    -webkit-font-smoothing:antialiased;
+html, body {
+  min-height: 100%;
 }
 
-.app-container{
-    max-width: var(--max-width);
-    margin: 2rem auto;
-    padding: 1rem;
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #b9d8df;
+  color: var(--ink);
 }
 
-/* Cards and common components */
-.card{
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
-    padding: 1rem;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.28) 0 2px, transparent 2px),
+    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.2) 0 1.6px, transparent 1.8px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.2) 0 1.9px, transparent 2px);
+  pointer-events: none;
+  opacity: 0.6;
 }
 
-button, .btn{
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-button:hover{background: var(--accent-dark)}
-
-input[type="text"], input[type="search"], .input{
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    font-size: 1rem;
+#User-input {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 640px;
+  margin: 1rem auto;
 }
 
-/* Layout helpers */
-.row{display:flex;gap:var(--gap);align-items:center}
-.col{display:flex;flex-direction:column;gap:0.5rem}
-.center{display:flex;align-items:center;justify-content:center}
-
-/* Improve existing elements with progressive enhancement (keep original rules as fallback) */
-#User-input{height: 50px; width:100%; max-width:600px; margin:0 auto; position:relative}
-#inputbox{height: 50px; width:100%; max-width:360px; font-size:1.2rem}
-#enterbutton{height: 50px; font-size:1rem; background-color:var(--accent); color: white; font-weight: 700; border-radius: 8px}
-
-#titleh1{font-size: clamp(20px,4vw,48px); color: white; background-color:var(--accent); padding:0.5rem 1rem; border-radius:8px; display:inline-block}
-
-#userStatus{font-size:1rem; padding:0.3rem 0.6rem; background:goldenrod; color:white; border-radius:6px}
-
-#messageBox{font-size:0.95rem; color:var(--danger); background:#000; color:#fff; padding:0.5rem; border-radius:6px}
-
-.wordlebox{border: solid rgba(0,0,0,0.12) 1px; width:100%; max-width:420px; height:auto; display:inline-block}
-.wordlebox span{font-size:1.1rem; font-weight:700; margin-left:0.5rem}
-
-/* Buttons for small controls */
-.small-btn{padding:0.4rem 0.6rem; border-radius:6px}
-
-/* Responsive adjustments to override absolute positioning on small screens */
-@media (max-width: 1000px){
-    h1,h2{position:static !important; left:auto !important; top:auto !important; width:auto !important}
-    .QuizSelector, .WordleSelector{position:static !important; margin:1rem auto; width:calc(100% - 2rem) !important}
-    .QuizSelector button, .WordleSelector button{position:static !important; margin-left:auto}
-    #User-input, #messageBox, #wordsHad, #hadp{position:static !important; left:auto !important; top:auto !important; margin-top:0.5rem}
-    .box1, .box2, .box3, .box4{left:auto !important; top:auto !important}
+#inputbox {
+  flex: 1;
+  height: 52px;
+  border: 2px solid #7da3ad;
+  border-radius: 0.7rem;
+  background: #f9fbfb;
+  color: var(--ink);
+  padding: 0 1rem;
+  font-size: 1.1rem;
 }
 
-@media (max-width: 600px){
-    .app-container{padding:0.5rem}
-    h1{font-size:1.6rem}
-    h2{font-size:1.1rem}
-    .wordlebox{max-width:100%; padding:0.6rem}
-    .QuizSelector p, .WordleSelector p{font-size:1.1rem}
-    .QuizSelector button, .WordleSelector button{width:auto; padding:0.5rem 0.8rem}
+#enterbutton {
+  height: 52px;
+  padding: 0 1.25rem;
+  border: 2px solid #8d5b3f;
+  border-radius: 0.7rem;
+  background: #d68d68;
+  color: #fffaf5;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 0 #9f6042;
+}
+
+#titleh1 {
+  display: block;
+  margin: 2rem auto 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 0.7rem;
+  background: #7ea7af;
+  border: 2px solid #456a73;
+  color: #f9fdfd;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 4px 0 rgba(56, 79, 85, 0.8);
+}
+
+#userStatus,
+#messageBox,
+#hadp,
+#wordsHad {
+  max-width: 640px;
+  margin: 0.75rem auto;
+  border-radius: 0.7rem;
+  border: 2px solid #7ea7af;
+  background: #eef8fa;
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+}
+
+.wordlebox {
+  border-radius: 0.7rem;
+  border: 2px solid #7da3ad;
+  background: #edf5f8;
+  padding: 0.5rem 0.75rem;
+}
+
+#movediv {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #7c8d93;
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.12);
+  color: var(--ink);
+  margin: 1.5rem auto 0;
+}
+
+@media (max-width: 600px) {
+  #User-input {
+    flex-direction: column;
+  }
+
+  #inputbox,
+  #enterbutton {
+    width: 100%;
+  }
 }

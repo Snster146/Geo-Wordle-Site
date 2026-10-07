@@ -2,33 +2,42 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Wordle Home Page</title>
-        <link rel="stylesheet" href="/EducationalBrainTeaserInJsR/css/WorldeHomePage.css">
-
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        boxShadow: {
+                            aquarium: '0 24px 48px rgba(3, 19, 27, 0.28)'
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="../css/aquarium-theme.css">
     </head>
-    <body>
-        <h1 id="hPageTitle">
-            Wordle
-        </h1>
+    <body class="aquarium-shell">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+            <header class="text-center">
+                <h1 id="hPageTitle" class="aquarium-title text-3xl md:text-5xl">Wordle</h1>
+            </header>
 
-        <div class="WordleSelector ">
-            <p id="p1">Single wordle</p>
-            <button id="b1">Single</button>
-            <p id="p2">Double wordle</p>
-            <button id="b2">Double</button>
-            <p id="p3">Quadruple wordle</p>
-            <button id="b3">Quadruple</button>
-            <p id="p4">Octuple wordle</p>
-            <button id="b4">Octuple</button>
-            <p id="p5">Go Home</p>
-            <button id="b5">Home</button>
+            <div class="aquarium-panel mx-auto mt-8 max-w-5xl rounded-[28px] p-4 md:p-6 shadow-aquarium">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="selection-card"><p id="p1">Single wordle</p><button id="b1" class="ocean-button px-5 py-3">Single</button></div>
+                    <div class="selection-card"><p id="p2">Double wordle</p><button id="b2" class="ocean-button px-5 py-3">Double</button></div>
+                    <div class="selection-card"><p id="p3">Quadruple wordle</p><button id="b3" class="ocean-button px-5 py-3">Quadruple</button></div>
+                    <div class="selection-card"><p id="p4">Octuple wordle</p><button id="b4" class="ocean-button px-5 py-3">Octuple</button></div>
+                    <div class="selection-card md:col-span-2"><p id="p5">Go Home</p><button id="b5" class="ocean-button px-5 py-3">Home</button></div>
+                </div>
+            </div>
         </div>
-
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="/EducationalBrainTeaserInJsR/javascript/worldeHomePage.js"></script>
-
+    <script src="../javascript/worldeHomePage.js"></script>
 
 </html>

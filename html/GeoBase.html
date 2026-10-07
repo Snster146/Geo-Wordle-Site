@@ -2,21 +2,37 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/GeoBase.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Geography Quizzes</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        boxShadow: {
+                            aquarium: '0 24px 48px rgba(3, 19, 27, 0.28)'
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="../css/aquarium-theme.css">
     </head>
-    <body>
-        <h1>Geography Quizzes</h1>
-        <h2>Select Quiz below</h2>
+    <body class="aquarium-shell">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+            <header class="text-center">
+                <h1 class="aquarium-title text-3xl md:text-5xl">Geography Quizzes</h1>
+                <h2 class="mt-4 text-xl md:text-2xl font-semibold tracking-[0.12em] uppercase text-sky-50/90">Select Quiz Below</h2>
+            </header>
 
-        <div class="QuizSelector ">
-            <p >Flag Guessing</p>
-            <button id="b1" >Enter</button>
-            <p >Country Guessing</p>
-            <button id="b2">Enter</button>
-            <p >Capital Guessing</p>
-            <button id="b3">Enter</button>
-            <p>Go Home</p>
-            <button id="b4">Enter</button>
+            <div class="aquarium-panel mx-auto mt-8 max-w-5xl rounded-[28px] p-4 md:p-6 shadow-aquarium">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="selection-card"><p>Flag Guessing</p><button id="b1" class="ocean-button px-5 py-3">Enter</button></div>
+                    <div class="selection-card"><p>Country Guessing</p><button id="b2" class="ocean-button px-5 py-3">Enter</button></div>
+                    <div class="selection-card"><p>Capital Guessing</p><button id="b3" class="ocean-button px-5 py-3">Enter</button></div>
+                    <div class="selection-card"><p>Go Home</p><button id="b4" class="ocean-button px-5 py-3">Enter</button></div>
+                </div>
+            </div>
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
